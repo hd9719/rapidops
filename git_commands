@@ -1,0 +1,112 @@
+ 
+
+Git commnads:-----
+
+1)CREATE A NEW LOCAL REPOSITORY:
+        
+       git init
+
+2)CREATE A WORKING COPY OF A LOCAL REPOSITORIES:
+ 
+       git clone username@host:/path/to/repository
+
+3)ADD ONE OR MORE FILES TO STAGING:-
+       
+       git add <filename>
+
+       git add *
+       
+       git add -i (interactive mode which gives 10 different options to performe)
+
+4)Git commit:-
+       git commit -m "Commit message"
+       git commit -a (Commit any files you've added with git add, and also commit any files you've changed since then:)
+
+5) git push
+        git push origin master(push master branch)
+
+6)git status:-
+       git status(List the files you've changed and those you still need to add or commit:)
+
+7)connect to a remote repository:-
+
+      git remote add origin <server>
+      git remote -v(List all currently configured remote repositories:)   
+8) branches
+      git checkout -b <branchname>(Create a new branch and switch to it:)
+      git checkout <branchname>(Switch from one branch to another:)
+      git branch (List all the branches in your repo, and also tell you what branch you're currently in:)
+      git branch -d <branchname>(Delete the feature branch:)
+      git push origin <branchname>(Push the branch to your remote repository, so others can use it:)
+      git push --all origin(Push all branches to your remote repository:)
+      git push origin :<branchname> (Delete a branch on your remote repository:)
+9)  GIT PULL 
+       git pull(merge +fech)
+       git merge <branchname>(To merge a different branch into your active branch:)
+       git log (get complete log)
+          - graph (complete graph)
+          -decorative
+10)git reset
+      
+          git reset <commit> -moves both the HEAD and branch refs to the specified commit.
+          --hard:- 
+               any pending work that was hanging out in the Staging Index and Working Directory will be lost.
+          --mixed
+               same as git reset default mode
+          --soft
+               staging index and working directory are left untouched.
+          git reset <file>   (remove file from staging area)
+                 
+11) To remove untracked files:-
+	 To remove directories, run git clean -f -d or git clean -fd
+	 To remove ignored files, run git clean -f -X or git clean -fX
+	 To remove ignored and non-ignored files, run git clean -f -x or git clean -f
+
+
+12)git revert
+     (to undo changes)
+       git revert
+
+13) to find orphaned commits
+      git reflog(commits have no direct ref )
+
+14)rebasing:---
+      
+         git rebase master (make a brand new commits base as a master)
+         
+        --i (iteractive mode for manually changing commits)
+        git rebase --onto master next topic (
+    
+  o---o---o---o---o  master                =>>>>>>>>>>>>>>>>>               
+         \
+          o---o---o---o---o  next
+                           \
+                            o---o---o  topic
+
+  o---o---o---o---o  master
+        |            \
+        |             o'--o'--o'  topic
+         \
+          o---o---o---o---o  next
+  We want to make topic forked from branch master; for example, because the functionality on which topic depends was merged into the more stable master branch. We want our tree to look like this:
+
+15) git stash
+
+   git stash temporarily shelves (or stashes) changes you've made to your working copy so you can work on something else, and then come back and re-apply them later on.
+    
+    git stash --stashing work
+    git stash pop ----- reapplying stashed change to working copy
+    git stash apply--- want to reapply change and want to have in stash for diff branch change
+    git stash -u -----(stash untracked files also (newly created files but not in staging area)
+    git stash list---shows list
+    git stash pop stash@{2} --pops second stash
+    git stash show (summary of stashes)
+    git stash branch add-stylesheet stash@{1}-----creating branch from a stash
+
+16)cherry-pick
+
+   git cherry-pick <commit-hash> to choose a commit from one branch and apply it to other branch
+   
+   
+     
+   
